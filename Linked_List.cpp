@@ -79,6 +79,11 @@ public:
     void pop_front(){
         if(isEmpty())
             cout << "The Linked List is Empty.\n";
+        else if(length == 1){
+            delete First;
+            Last = First = NULL;
+            length--;
+        }
         else{
             Node *temp = First;
             First = First->next;
@@ -89,14 +94,17 @@ public:
     }
 // Remove Last Element
     void pop_back(){
-        Node *Previous, *current;
+        Node *current = First->next;
+        Node *Previous = First;
         if(isEmpty())
             cout << "The Linked List is Empty.\n";
         else if(length == 1)
-            pop_front();
+        {
+            delete First;
+            Last = First = NULL;
+            length--;
+        }
         else{
-            current = First->next;
-            Previous = First;
             while(current != Last)
             {
                 Previous = current;
@@ -110,13 +118,18 @@ public:
     }
 // Remove an Element
     void erase(int Element){
-        Node *Previous, *current;
         if(isEmpty())
             cout << "The Linked List is Empty.\n";
-        else if(First->item == Element)
-            pop_front();
-        else if(Last->item == Element)
-            pop_back();
+        Node *Previous, *current;
+        if(First->item == Element)
+        {
+            current = First;
+            First = First->next;
+            delete current;
+            length--;
+            if(length == 0)
+                Last = NULL;
+        }
         else{
             current = First->next;
             Previous = First;
@@ -129,9 +142,9 @@ public:
             if(current == NULL)
                 cout << "Element Not Found.\n";
             else{
-
                 Previous->next = current->next;
-                //current->next = NULL;
+                if(Last == current)
+                    Last = Previous;
                 delete current;
                 length--;
             }
