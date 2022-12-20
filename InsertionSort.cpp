@@ -1,11 +1,5 @@
 #include <iostream>
 using namespace std;
-// Swap Function For the Min element in array
-void swap(int &x, int &y){
-    int temp = x;
-    x = y;
-    y = temp;
-}
 // Sort Function
 void InsertionSort(int arr[], int size){
     for(int i = 1; i < size; i++){
