@@ -23,10 +23,10 @@ int main(){
     int n = sizeof(arr) / sizeof(arr[0]);
 
     cout << "The array before insertion sort: ";
-    print(arr, n);          // The array before insertion sort: 60 40 50 30 10 20
+    print(arr, n);          // The array before insertion sort: 80 90 60 30 50 70 40
     InsertionSort(arr, n);
     cout << "\nThe array after insertion sort: ";
-    print(arr, n);          // The array after insertion sort: 10 20 30 40 50 60
+    print(arr, n);          // The array after insertion sort: 30 40 50 60 70 80 90
     return 0;
 }
 // End The main
