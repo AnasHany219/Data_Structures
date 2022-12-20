@@ -31,10 +31,10 @@ int main(){
     int n = sizeof(arr) / sizeof(arr[0]);
 
     cout << "The array before bubble sort: ";
-    print(arr, n);          // The array before bubble sort: 60 40 50 30 10 20
+    print(arr, n);          // The array before bubble sort: 100 60 20 50 30 90
     BubbleSort(arr, n);
     cout << "\nThe array after bubble sort: ";
-    print(arr, n);          // The array after bubble sort: 10 20 30 40 50 60
+    print(arr, n);          // The array after bubble sort: 10 20 30 60 90 100
     return 0;
 }
 // End The main
