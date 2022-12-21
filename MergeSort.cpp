@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void Marge(int arr[], const int l, const int m, const int r){
+void Merge(int arr[], const int l, const int m, const int r){
     int i, j, k;
     const int size_arr1 = m - l + 1;  // size of first subarray [l, ..., m]
     const int size_arr2 = r - m;      // size of second subarray [m+1, ..., r]
@@ -37,12 +37,12 @@ void Marge(int arr[], const int l, const int m, const int r){
     }
 }
 // Sort Function
-void MargeSort(int arr[], int begin, int end){
+void MergeSort(int arr[], int begin, int end){
     if(begin < end){
         int mid = begin + (end - begin) / 2;
-        MargeSort(arr, begin, mid);
-        MargeSort(arr, mid + 1, begin);
-        Marge(arr, begin, mid, end);
+        MergeSort(arr, begin, mid);
+        MergeSort(arr, mid + 1, end);
+        Merge(arr, begin, mid, end);
     }
 }
 // Display The Element
@@ -55,11 +55,11 @@ int main(){
     int arr[] = {30, 20, 40, 5, 90, 80, 10};
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    cout << "The array before marge sort: ";
-    print(arr, n);          // The array before marge sort: 30 20 40 5 90 80 10
-    MargeSort(arr, 0, n-1);
-    cout << "\nThe array after marge sort: ";
-    print(arr, n);          // The array after marge sort: 5 10 20 30 40 80 90
+    cout << "The array before merge sort: ";
+    print(arr, n);          // The array before merge sort: 30 20 40 5 90 80 10
+    MergeSort(arr, 0, n-1);
+    cout << "\nThe array after merge sort: ";
+    print(arr, n);          // The array after merge sort: 5 10 20 30 40 80 90
     return 0;
 }
 // End The main
